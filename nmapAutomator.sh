@@ -1,6 +1,6 @@
 #!/bin/sh
-#by @21y4d
-
+#Originally by @21y4d
+# Updated by Gorship
 # Define ANSI color variables
 RED='\033[0;31m'
 YELLOW='\033[0;33m'
@@ -692,14 +692,14 @@ reconRecommend() {
                 if [ "${osType}" = "Windows" ]; then
                         echo "nmap -Pn -p445 --script vuln -oN \"recon/SMB_vulns_${HOST}.txt\" \"${HOST}\""
                 elif [ "${osType}" = "Linux" ]; then
-                        echo "enum4linux -a \"${HOST}\" | tee \"recon/enum4linux_${HOST}.txt\""
+                        echo "enum4linux-ng -a \"${HOST}\" | tee \"recon/enum4linux-ng_${HOST}.txt\""
                 fi
                 echo
         elif echo "${file}" | grep -q "139/tcp" && [ "${osType}" = "Linux" ]; then
                 printf "${NC}\n"
                 printf "${YELLOW}SMB Recon:\n"
                 printf "${NC}\n"
-                echo "enum4linux -a \"${HOST}\" | tee \"recon/enum4linux_${HOST}.txt\""
+                echo "enum4linux-ng -a \"${HOST}\" | tee \"recon/enum4linux-ng_${HOST}.txt\""
                 echo
         fi
 
